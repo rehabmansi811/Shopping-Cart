@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page - Products</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .navbar-brand {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .product-card p {
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            -webkit-line-clamp: 1;
+            line-height: 1.5;
+            max-height: 3em;
+        }
+
+        .cart-icon,
+        .menu-icon {
+            position: relative;
+            cursor: pointer;
+            margin-right: 15px;
+        }
+
+        .cart-icon img,
+        .menu-icon img {
+            width: 24px;
+            height: 24px;
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -10px;
+            background-color: red;
+            color: white;
+            font-size: 12px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Sidebar */
+        #mySidebar {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            right: 0;
+            background-color: #111;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+        }
+
+        #mySidebar a {
+            padding: 10px 15px;
+            text-decoration: none;
+            font-size: 22px;
+            color: white;
+            display: block;
+            transition: 0.3s;
+        }
+
+        #mySidebar a:hover {
+            background-color: #575757;
+        }
+
+        #mySidebar i {
+            margin-right: 10px;
+        }
+
+        .closebtn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 36px;
+        }
+
+        /* Social Media Section */
+        .social-media {
+            display: flex;
+            justify-content: center;
+            margin-top: auto;
+            padding: 10px 0;
+            position: absolute;
+            bottom: 20px;
+        }
+
+        .social-media a {
+            color: white;
+            margin: 0 10px;
+            font-size: 22px;
+            transition: 0.3s;
+        }
+
+        .social-media a:hover {
+            color: #575757;
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 248.39px;
+            object-fit: cover;
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#"><h3>LumiSkin</h3></a>
+            <div class="d-flex">
+                <div class="menu-icon" onclick="openSidebar()">
+                    <img src="https://img.icons8.com/ios-filled/50/000000/menu--v3.png" alt="Menu">
+                </div>
+                <div class="cart-icon" onclick="goToCartPage()">
+                    <img src="https://img.icons8.com/material-outlined/24/000000/shopping-cart--v1.png" alt="Cart">
+                    <div id="cartCount" class="cart-count">0</div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Sidebar -->
+    <div id="mySidebar" class="sidebar">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeSidebar()">&times;</a>
+        <a href="#Home"><i class="fas fa-home"></i> Home</a>
+        <a href="#Product"><i class="fas fa-box-open"></i> Product</a>
+        <a href="#Best-Seller "><i class="fas fa-star"></i> Best Seller</a>
+        <a href="#" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Logout</a>
+
+        <!-- Social Media Icons -->
+        <div class="social-media">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fas fa-envelope"></i></a>
+        </div>
+    </div>
+
+
+<div class="container my-5" id="Home">
+    
+      <video width="100%" class="mb-2" height="80%" autoplay muted loop>
+        <source src="vidoes/istockphoto-1471469832-640_adpp_is.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+    <div class="container my-5">
+        <h1 class="text-center mb-5">All Products</h1>
+        <div class="row" id="Product">
+            <!-- Product 1 -->
+            <div class="col-md-4">
+                <div class="product-card card mb-4">
+                    <img src="https://media.istockphoto.com/id/1500014387/photo/orange-tube-of-sunscreen-on-sandy-beach-top-view.jpg?s=1024x1024&w=is&k=20&c=4h5LNRwtVrCsAvu_LkhluUu4zpe97h_ld_7PLvcX2K0="
+                        alt="Product 1">
+                    <div class="card-body">
+                        <h5 class="card-title">sunscreen</h5>
+                        <p class="card-text"> Orange tube of sunscreen on sandy beach top view</p>
+                        <p class="product-price">$40</p>
+                        <button class="btn btn-primary addToCartBtn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 2 -->
+            <div class="col-md-4">
+                <div class="product-card card mb-4">
+                    <img src="https://media.istockphoto.com/id/1959214634/photo/beauty-and-fashion.jpg?s=1024x1024&w=is&k=20&c=uexwUraJSvWnBziKNHhYaUHSxodsj8wy77Q5gddvMuo="
+                        alt="Product 2">
+                    <div class="card-body">
+                        <h5 class="card-title"> Moisturizer cream</h5>
+                        <p class="card-text">Opened face cream jar and brush stroke on pink surface.</p>
+                        <p class="product-price">$33</p>
+                        <button class="btn btn-primary addToCartBtn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 3 -->
+            <div class="col-md-4">
+                <div class="product-card card mb-4">
+                    <img src="https://media.istockphoto.com/id/1299220589/photo/gold-beauty-serum-in-a-pipette-bottle-on-a-pink-podium-with-shadows.jpg?s=1024x1024&w=is&k=20&c=55HtqgehIOVIduia4Zijm3x_sXk5zhmxMbhFOb0KAcI="
+                        alt="Product 1">
+                    <div class="card-body">
+                        <h5 class="card-title">Hydronic acid serum</h5>
+                        <p class="card-text">gold beauty serum in a pipette bottle on a pink podium with shadows on a
+                            coral pink background</p>
+                        <p class="product-price">$33.99</p>
+                        <button class="btn btn-primary addToCartBtn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 4 -->
+            <div class="col-md-4">
+                <div class="product-card card mb-4">
+                    <img src="https://media.istockphoto.com/id/2010745256/photo/anti-aging-niacinamide-face-serum.jpg?s=1024x1024&w=is&k=20&c=p_cf3y7RokVRYxvSFp-AZ6zLofBeiQf6OAUbrpjTADs="
+                        alt="Product 2">
+                    <div class="card-body">
+                        <h5 class="card-title">niacinamide serum</h5>
+                        <p class="card-text">Natural cosmetic product with rose essential oil</p>
+                        <p class="product-price">$29.99</p>
+                        <button class="btn btn-primary addToCartBtn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 5 -->
+            <div class="col-md-4">
+                <div class="product-card card mb-4">
+                    <img src="https://media.istockphoto.com/id/1810141441/photo/perfume-bottle-beige-background-rocks-cosmetic-make-up-mockup-presentation.jpg?s=1024x1024&w=is&k=20&c=TTT7soAu6Utr-O7BmEWBncE3qK7FVan0Ntm0kZayXHw="
+                        alt="Product 1">
+                    <div class="card-body">
+                        <h5 class="card-title">Perfume</h5>
+                        <p class="card-text">Perfume bottle beige background rocks cosmetic make up mockup presentation
+                        </p>
+                        <p class="product-price">$119.99</p>
+                        <button class="btn btn-primary addToCartBtn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 6-->
+            <div class="col-md-4">
+                <div class="product-card card mb-4">
+                    <img src="https://media.istockphoto.com/id/1420249059/photo/set-of-natural-anti-age-skin-care-cosmetics-on-wooden-tray-with-dry-reeds-brunch-beauty-face.jpg?s=1024x1024&w=is&k=20&c=E9aiCI4xyid0RbLCj6OGZv0-PW4EbQzrJYAQHKHz8qQ="
+                        alt="Product 2">
+                    <div class="card-body">
+                        <h5 class="card-title"> oil and face cream</h5>
+                        <p class="card-text">Set of natural anti-age skin care cosmetics on wooden tray with dry reeds
+                            brunch. Beauty face oil, essential oil and face cream in dark glass unbranded package.</p>
+                        <p class="product-price">$60</p>
+                        <button class="btn btn-primary addToCartBtn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 7 -->
+            <div class="col-md-4">
+                <div class="product-card card mb-4">
+                    <img src="https://media.istockphoto.com/id/1184159040/photo/two-brown-glass-bottles-of-shampoo-and-conditioner-of-body-care-cosmetics-over-natural.jpg?s=1024x1024&w=is&k=20&c=bR_K-eSkRPNzHb4iSVRmIVAfuMTXfJQcO_GU__JqBqs="
+                        alt="Product 1">
+                    <div class="card-body">
+                        <h5 class="card-title">hair care</h5>
+                        <p class="card-text">Two brown glass bottles of shampoo and conditioner of body care cosmetics
+                            over Natural background of real tree bark, tiny mosses and grass organic for cosmetic
+                            products with copy space. Flat lay.</p>
+                        <p class="product-price">$519.99</p>
+                        <button class="btn btn-primary addToCartBtn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 8 -->
+            <div class="col-md-4">
+                <div class="product-card card mb-4">
+                    <img src="https://media.istockphoto.com/id/962064698/photo/moisturizing-body-and-hair-oil-with-rose-petals-lie-on-a-black-table-top-view-dark-moody-style.jpg?s=1024x1024&w=is&k=20&c=3Y3TR4LF4ISY6EOLAZ_cqSxZc8H_RA6SnC3uf9rhr9A="
+                        alt="Product 2">
+                    <div class="card-body">
+                        <h5 class="card-title">moisturizing body and hair oil</h5>
+                        <p class="card-text">moisturizing body and hair oil, with rose-petals. Lie on a black table, top
+                            view. Dark moody style background</p>
+                        <p class="product-price">$129.99</p>
+                        <button class="btn btn-primary addToCartBtn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 9 -->
+            <div class="col-md-4">
+                <div class="product-card card mb-4">
+                    <img src="https://media.istockphoto.com/id/1688486735/photo/skin-care-stage-for-healthy-skin-face-serum-and-lotion-scrub-peeling-and-cleanser-on-white.jpg?s=1024x1024&w=is&k=20&c=ME4u85Ypob1u8NkhLD32iiZdTC-SAHSnyQTZ014CaFM="
+                        alt="Product 1">
+                    <div class="card-body">
+                        <h5 class="card-title">body care</h5>
+                        <p class="card-text">Skin care stage for healthy skin - face serum and lotion, scrub, peeling
+                            and cleanser on white wooden background. The concept of beauty and cosmetics. A set of
+                            cosmetics on a wooden shelf.</p>
+                        <p class="product-price">$232</p>
+                        <button class="btn btn-primary addToCartBtn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 10-->
+            <div class="col-md-4">
+                <div class="product-card card mb-4">
+                    <img src="https://media.istockphoto.com/id/1493852743/photo/red-rose-water.jpg?s=1024x1024&w=is&k=20&c=SdMVq1ymvOsQ537aeZ9yxkaLUrvV41eyQKlK3PK1BGw="
+                        alt="Product 2">
+                    <div class="card-body">
+                        <h5 class="card-title">perfume</h5>
+                        <p class="card-text">Vintage perfume sprayer with red roses.</p>
+                        <p class="product-price">$299</p>
+                        <button class="btn btn-primary addToCartBtn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 11 -->
+            <div class="col-md-4">
+                <div class="product-card card mb-4">
+                    <img src="https://media.istockphoto.com/id/2172873204/photo/elegant-amber-perfume-bottle-on-rustic-wood-textured-background.jpg?s=1024x1024&w=is&k=20&c=cUCUD0Dfby9Lggahm5sz-r0j4Lh2OefTh4W3OiUn88w="
+                        alt="Product 3">
+                    <div class="card-body">
+                        <h5 class="card-title">perfume</h5>
+                        <p class="card-text">Elegant amber perfume bottle on rustic wood textured background.</p>
+                        <p class="product-price">$139.99</p>
+                        <button class="btn btn-primary addToCartBtn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container my-5">
+        <h1 class="text-center mb-5">Best Seller </h1>
+        <div class="row" id="Best-Seller">
+            <!-- Product 1 -->
+            <div class="col-md-4">
+                <div class="product-card card mb-4">
+                    <img src="https://media.istockphoto.com/id/1500014387/photo/orange-tube-of-sunscreen-on-sandy-beach-top-view.jpg?s=1024x1024&w=is&k=20&c=4h5LNRwtVrCsAvu_LkhluUu4zpe97h_ld_7PLvcX2K0="
+                        alt="Product 1">
+                    <div class="card-body">
+                        <h5 class="card-title">sunscreen</h5>
+                        <p class="card-text"> Orange tube of sunscreen on sandy beach top view</p>
+                        <p class="product-price">$40</p>
+                        <button class="btn btn-primary addToCartBtn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 2 -->
+            <div class="col-md-4">
+                <div class="product-card card mb-4">
+                    <img src="https://media.istockphoto.com/id/1959214634/photo/beauty-and-fashion.jpg?s=1024x1024&w=is&k=20&c=uexwUraJSvWnBziKNHhYaUHSxodsj8wy77Q5gddvMuo="
+                        alt="Product 2">
+                    <div class="card-body">
+                        <h5 class="card-title"> Moisturizer cream</h5>
+                        <p class="card-text">Opened face cream jar and brush stroke on pink surface.</p>
+                        <p class="product-price">$33</p>
+                        <button class="btn btn-primary addToCartBtn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 3 -->
+            <div class="col-md-4">
+                <div class="product-card card mb-4">
+                    <img src="https://media.istockphoto.com/id/2172873204/photo/elegant-amber-perfume-bottle-on-rustic-wood-textured-background.jpg?s=1024x1024&w=is&k=20&c=cUCUD0Dfby9Lggahm5sz-r0j4Lh2OefTh4W3OiUn88w="
+                        alt="Product 3">
+                    <div class="card-body">
+                        <h5 class="card-title">perfume</h5>
+                        <p class="card-text">Elegant amber perfume bottle on rustic wood textured background.</p>
+                        <p class="product-price">$139.99</p>
+                        <button class="btn btn-primary addToCartBtn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script>
+        function goToCartPage() {
+            window.location.href = "cart.html";
+        }
+
+        function goToHomePage() {
+            window.location.href = "home.html";
+        }
+
+        function openSidebar() {
+            document.getElementById("mySidebar").style.width = "260px";
+        }
+
+        function closeSidebar() {
+            document.getElementById("mySidebar").style.width = "0";
+        }
+
+        // Verify user data and cart when the page loads
+        window.onload = function () {
+            const storedUserData = localStorage.getItem('userData');
+            if (!storedUserData) {
+                window.location.href = 'index.html';
+            }
+        }
+        // Load cart for the logged in user
+        let currentUser = sessionStorage.getItem('currentUser');
+        if (!currentUser) {
+            window.location.href = 'login.html'; // Redirect to login if not logged in
+        }
+
+        // Retrieve cart for the current user
+        let cart = JSON.parse(localStorage.getItem(currentUser + '_cart')) || [];
+        const cartCountElement = document.getElementById("cartCount");
+
+        // Update cart count
+        function updateCartCount() {
+            cartCountElement.textContent = cart.length;
+        }
+        updateCartCount();
+
+        document.querySelectorAll(".addToCartBtn").forEach(button => {
+            button.addEventListener("click", (event) => {
+                const product = {
+                    name: event.target.closest(".card-body").querySelector(".card-title").textContent,
+                    price: parseFloat(event.target.closest(".card-body").querySelector(".product-price").textContent.replace('$', '')),
+                    image: event.target.closest(".card").querySelector("img").src
+                };
+
+                cart.push(product);
+                localStorage.setItem(currentUser + '_cart', JSON.stringify(cart));
+                updateCartCount();
+            });
+        });
+
+        // Handle logout
+        document.getElementById('logoutBtn').addEventListener('click', function (event) {
+            event.preventDefault();
+            const confirmLogout = window.confirm("Are you sure you want to log out?");
+            if (confirmLogout) {
+                sessionStorage.removeItem('currentUser');
+                window.location.href = 'login.html';
+            }
+        });
+    </script>
+
+
+</body>
+
+</html>
