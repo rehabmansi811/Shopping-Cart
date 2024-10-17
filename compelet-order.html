@@ -1,15 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Complete Order</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
-    body { background-color: #f8f9fa; }
-    .order-container { max-width: 600px; margin: 50px auto; padding: 20px; border-radius: 8px; background-color: white; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); }
+    body {
+      background-color: #f8f9fa;
+    }
+
+    .order-container {
+      max-width: 600px;
+      margin: 50px auto;
+      padding: 20px;
+      border-radius: 8px;
+      background-color: white;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-error {
+      color: red;
+      display: none;
+    }
   </style>
 </head>
+
 <body>
 
   <div class="container">
@@ -18,11 +35,12 @@
       <form id="orderForm">
         <div class="mb-3">
           <label for="name" class="form-label">Full Name</label>
-          <input type="text" class="form-control" id="name" required>
+          <input type="text" class="form-control" id="name" required minlength="3">
         </div>
         <div class="mb-3">
           <label for="email" class="form-label">Email Address</label>
           <input type="email" class="form-control" id="email" required>
+          <div id="emailError" class="form-error">Please enter a valid email address (must be @gmail.com or @yahoo.com and end with .com, .org, or .edu).</div>
         </div>
         <div class="mb-3">
           <label for="address" class="form-label">Shipping Address</label>
@@ -31,6 +49,7 @@
         <div class="mb-3">
           <label for="phone" class="form-label">Phone Number</label>
           <input type="tel" class="form-control" id="phone" required>
+          <div id="phoneError" class="form-error">Please enter a valid phone number (11 digits and must start with 01).</div>
         </div>
         <button type="submit" class="btn btn-primary w-100">Submit Order</button>
       </form>
@@ -38,21 +57,43 @@
   </div>
 
   <script>
-    document.getElementById('orderForm').addEventListener('submit', function(event) {
+    document.getElementById('orderForm').addEventListener('submit', function (event) {
       event.preventDefault();
-      
-      // You can process the data (such as sending it to a server or storing it locally)
-      const name = document.getElementById('name').value;
-      const email = document.getElementById('email').value;
-      const address = document.getElementById('address').value;
-      const phone = document.getElementById('phone').value;
 
-      // confirmation message
+      const email = document.getElementById('email').value;
+      const phone = document.getElementById('phone').value;
+      const emailError = document.getElementById('emailError');
+      const phoneError = document.getElementById('phoneError');
+
+      // Email validation regex
+      const emailPattern = /^[a-zA-Z0-9._%+-]+@(gmail|yahoo)\.(com|org|edu)$/;
+
+      // Validate email
+      if (!emailPattern.test(email)) {
+        emailError.style.display = 'block'; // Show email error message
+        return;
+      } else {
+        emailError.style.display = 'none'; // Hide email error message
+      }
+
+      // Phone number validation regex
+      const phonePattern = /^01[0-9]{9}$/;
+
+      // Validate phone number
+      if (!phonePattern.test(phone)) {
+        phoneError.style.display = 'block'; // Show phone error message
+        return;
+      } else {
+        phoneError.style.display = 'none'; // Hide phone error message
+      }
+
+      // Process the form (e.g., submit data to a server or display a success message)
+      // Confirmation message
       alert(`Thank you, ${name}! Your order has been placed.\nEmail: ${email}\nAddress: ${address}\nPhone: ${phone}`);
       
-       
     });
   </script>
 
 </body>
+
 </html>
