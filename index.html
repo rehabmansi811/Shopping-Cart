@@ -24,10 +24,21 @@
             color: red;
             display: none;
         }
+
+        .navbar {
+            margin-bottom: 20px;
+        }
     </style>
 </head>
 
 <body class="form-body">
+    <!-- Navbar -->
+    <nav class="navbar navbar-light bg-light">
+        <div class="container-fluid">
+            <span class="navbar-brand mb-0 h1">LumiSkin</span>
+        </div>
+    </nav>
+
     <div class="container">
         <div class="form-container">
             <h2 class="text-center">Sign Up</h2>
@@ -35,6 +46,7 @@
                 <div class="mb-3">
                     <label for="email" class="form-label">Email address</label>
                     <input type="email" class="form-control" id="email" required>
+                    <div id="emailError" class="form-error">Please enter a valid email address (must be @gmail.com, @yahoo.com,and ends with .com, .org).</div>
                 </div>
                 <div class="mb-3">
                     <label for="password" class="form-label">Password</label>
@@ -45,11 +57,13 @@
                     <input type="password" class="form-control" id="confirmPassword" required>
                 </div>
                 <div id="errorMessage" class="form-error" style="display:none;">Passwords do not match.</div>
-                <div id="successMessage" class="form-success" style="display:none;">Sign up successful! Redirecting to
-                    login...
-                </div>
+                <div id="successMessage" class="form-success" style="display:none;">Sign up successful! Redirecting to login...</div>
                 <button type="submit" class="btn btn-primary w-100">Sign Up</button>
             </form>
+            <div class="text-center mt-3">
+                <p>Already have an account?</p>
+                <button class="btn btn-link" onclick="goToLogin()">Sign In</button>
+            </div>
         </div>
     </div>
 
@@ -60,10 +74,20 @@
             const email = document.getElementById('email').value;
             const password = document.getElementById('password').value;
             const confirmPassword = document.getElementById('confirmPassword').value;
+            const emailError = document.getElementById('emailError');
             const errorMessage = document.getElementById('errorMessage');
             const successMessage = document.getElementById('successMessage');
 
-            // Check if passwords match
+            // Email validation regex
+            const emailPattern = /^[a-zA-Z0-9._%+-]+@(gmail|yahoo)\.com$|^[a-zA-Z0-9._%+-]+@domain\.edu$/;
+
+            if (!emailPattern.test(email)) {
+                emailError.style.display = 'block';
+                return;
+            } else {
+                emailError.style.display = 'none';
+            }
+
             if (password !== confirmPassword) {
                 errorMessage.style.display = 'block';
                 return;
@@ -71,7 +95,6 @@
                 errorMessage.style.display = 'none';
             }
 
-            // Check if user already exists
             const storedUserData = JSON.parse(localStorage.getItem('userData')) || {};
             if (storedUserData[email]) {
                 errorMessage.innerText = 'User already exists with this email.';
@@ -79,17 +102,20 @@
                 return;
             }
 
-            // Store the new user data in localStorage
-            storedUserData[email] = { email: email, password: password, cart: [] }; // Initialize with an empty cart
+            storedUserData[email] = { email: email, password: password, cart: [] };
             localStorage.setItem('userData', JSON.stringify(storedUserData));
 
-            // Show success message and redirect to login
             successMessage.style.display = 'block';
             setTimeout(function () {
-                window.location.href = 'login.html'; // Redirect to login page after 2 seconds
+                window.location.href = 'login.html'; // Redirect to login page
             }, 2000);
         });
+
+        function goToLogin() {
+            window.location.href = 'login.html'; // Redirect to login page
+        }
     </script>
+
 </body>
 
 </html>
